@@ -1,12 +1,16 @@
-<h1>Tasks</h1>
+<h1 class="mt-5">Tasks</h1>
 
-<ul>
+<ul class="list-group list-group-flush my-4">
   <% @tasks.each do |task| %>
-  <li>
-    <%= link_to task.title, task_path(task) %> 
-    <%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+  <li class="list-group-item">
+    <div class="d-flex justify-content-between">
+      <%= link_to task.title, task_path(task) %> 
+      <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </div>
   </li>
   <% end %>
 </ul>
 
-<%= link_to 'Create new task', new_task_path %>
+<%= link_to 'Create new task', new_task_path, class: 'btn btn-primary' %>

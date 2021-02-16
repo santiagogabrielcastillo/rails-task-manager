@@ -1,9 +1,11 @@
-<h1>Task ID <%= @task.id %></h1>
+<h1 class="my-4">Task ID <%= @task.id %></h1>
 
-<h3><%= @task.title %></h3>
-<p><%= @task.details %></p>
-<p>Status: <em><%= @task.completed ? 'Completed' : 'Not completed' %></em></p>
-
-<%= link_to 'Edit task', edit_task_path(@task) %>
-
-<%= link_to 'Go back to list', tasks_path %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @task.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @task.details %></h6>
+    <p class="card-text">Status: <em><%= @task.completed ? 'Completed' : 'Not completed' %></em></p>
+    <%= link_to 'Edit task', edit_task_path(@task), class: 'card-link' %>
+    <%= link_to 'Go back to list', tasks_path, class: 'card-link' %>
+  </div>
+</div>
